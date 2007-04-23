@@ -1,0 +1,31 @@
+#labels Featured,Phase-Design
+= Summaries of Meetings =
+
+== Second meeting (04/23/2007) ==
+
+=== Accomplished ===
+
+  * Helder: Tried playing around with Firewatir on Gmail to delete all messages with a label. Failed miserably. Learned a few things.
+  * Helder: Installed DOM Inspector, Web Developer and InspectWidget extensions; started fussing around with pages structures.
+  * Angrez/Aaron: Tried out TestGen4Web and looked at his output.
+    * it doesn't write out reload command when user clicks on Back button;
+    * it doesn't handle page pop ups. probably would have to record new script for new window and then merge it into the parent one;
+    * don't know if it handles javascript popups (messages).
+
+=== Decisions ===
+
+  * Ruled out selenium-ide as candidate for recorder.
+  * Meetings should be weekly until the end of May (because of Helder's work and university classes), and then start to be twice a week as we build up speed.
+
+=== TODO ===
+
+  * Helder: Write script to empty Gmail-*HTML* label (should be easier).
+  * Helder: Go through roadmap in the application and sketch out Milestones.
+  * Everyone: Search for new recorders. *Deadline* for picking one is _next week_.
+
+
+
+
+
+
+
