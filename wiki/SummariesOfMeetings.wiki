@@ -3,13 +3,34 @@
 
 = Summaries of Meetings =
 
+== Third meeting (04/30/2007) ==
+
+=== Accomplished ===
+
+  * Helder: Got the Gmail-label-emptying !FireWatir script to work!
+  * Angrez/Aaron: Searched for new recorders; didn't find any.
+
+=== Decisions ===
+
+  * !TestGen4Web is the final winner in the recorder contest.
+  * We need a proof of concept working by the end of May.
+  * Set Timeline page with milestones and project plan.
+
+=== TODO (until next week) ===
+
+  * Helder: parse the XML from !TestGen4Web (get the XML into a document tree that I can use).
+  * Helder: start learning XPath.
+  * Helder: write a blog post about the empty_label.rb script.
+  * Angrez: append list with elements supported by Firewatir to the Timeline page.
+  * Aaron: have a great vacation! ;)
+
 == Second meeting (04/23/2007) ==
 
 === Accomplished ===
 
   * Helder: Tried playing around with Firewatir on Gmail to delete all messages with a label. Failed miserably. Learned a few things.
-  * Helder: Installed DOM Inspector, Web Developer and InspectWidget extensions; started fussing around with pages structures.
-  * Angrez/Aaron: Tried out TestGen4Web and looked at his output.
+  * Helder: Installed DOM Inspector, !WebDeveloper and !InspectWidget extensions; started fussing around with pages structures.
+  * Angrez/Aaron: Tried out !TestGen4Web and looked at his output.
     * it doesn't write out reload command when user clicks on Back button;
     * it doesn't handle page pop ups. probably would have to record new script for new window and then merge it into the parent one;
     * don't know if it handles javascript popups (messages).
@@ -24,6 +45,8 @@
   * Helder: Write script to empty Gmail-*HTML* label (should be easier).
   * Helder: Go through roadmap in the application and sketch out Milestones.
   * Everyone: Search for new recorders. *Deadline* for picking one is _next week_.
+
+
 
 
 
