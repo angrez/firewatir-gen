@@ -1,5 +1,5 @@
+#summary Summaries of chat meetings between mentors and student.
 #labels Featured,Phase-Design
-# Summaries of chat meetings between mentors and student.
 
 = Summaries of Meetings =
 
