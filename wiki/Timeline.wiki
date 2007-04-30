@@ -1,13 +1,5 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+= May =
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * 1st week: parse testgen4web XML ("Just focus on getting the XML in to a document tree that you can use");
