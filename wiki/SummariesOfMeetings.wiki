@@ -1,4 +1,6 @@
 #labels Featured,Phase-Design
+# Summaries of chat meetings between mentors and student.
+
 = Summaries of Meetings =
 
 == Second meeting (04/23/2007) ==
@@ -22,7 +24,6 @@
   * Helder: Write script to empty Gmail-*HTML* label (should be easier).
   * Helder: Go through roadmap in the application and sketch out Milestones.
   * Everyone: Search for new recorders. *Deadline* for picking one is _next week_.
-
 
 
 
