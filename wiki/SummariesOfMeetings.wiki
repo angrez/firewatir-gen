@@ -3,6 +3,30 @@
 
 = Summaries of Meetings =
 
+== Nth meeting (05/16/2007) ==
+
+=== Accomplished ===
+
+  * Angrez: appended list with supported !FireWatir elements to the Timeline page.
+  * Helder: wrote the blog post about the empty_label.rb script.
+  * Helder: dug into !FireWatir code, collected some doubts and posted them along with some suggestions to the !FireWatir mailing list.
+  * Helder: learned some XPath.
+  * Helder: learned the basics of parsing XML with REXML on voegol.xml.
+  * Helder: recorded an example with !TestGen4Web, looked into the XML outputed and translated it by hand into !FireWatir code, getting an idea of how to make the process automatic.
+
+=== Decisions ===
+  * Use REXML's SAX-like stream parsing (by filling out the sample streamlistener.rb).
+  * Don't use full xpath from tg4w if we can help it. Make a search for the least restrictive xpath that returns a unique element. This may divorce us from being an official !TestGen4Web translator. We'll have to see about this later.
+  * Create a FireWatirGen module to include into generated .rb scripts for functionality that's not in !FireWatir itself but has to be present in run-time rather than in translate-time (like element_by_least_restrictive_xpath() which depends on a running Firefox+!FireWatir). If generally useful, some things from this module could later be incorporated into !FireWatir itself.
+
+=== TODO (until next meeting) ===
+  * Helder: fill out streamlistener.rb to parse the actions seen in the example voegol.xml. Use the absolute xpaths (later it's only a matter of changing the call from element_by_xpath to element_by_least_restrictive_xpath).
+  * Helder: get the list of all possible actions outputed by !TestGen4Web (try to find docs; if fail look into tg4w's code).
+  * Helder: write the FireWatirGen module with element_by_least_restrictive_xpath.
+
+=== Long shots ===
+  * Write a set of asserts covering all that !FireWatir can do plus the stuff on the FireWatirGen module, like assert_element_by_xpath(xpath) returns true if found and false otherwise. That'd be useful on its own, and we could also have a translator output a Test::Unit::!TestCase.
+
 == Third meeting (04/30/2007) ==
 
 === Accomplished ===
@@ -45,6 +69,7 @@
   * Helder: Write script to empty Gmail-*HTML* label (should be easier).
   * Helder: Go through roadmap in the application and sketch out Milestones.
   * Everyone: Search for new recorders. *Deadline* for picking one is _next week_.
+
 
 
 
