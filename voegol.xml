@@ -18,7 +18,7 @@
 	<!--
 	ff.title == '.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......'
 	
-	FIXME: não funcionou:
+	FIXME: didn't work, problem with character encoding:
 	ff.title
 	=> ".....:GOL:..:LINHAS A\311REAS INTELIGENTES:......"
 	irb(main):006:0> ff.title == '.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......'
@@ -41,9 +41,13 @@
 	disabled:     ReferenceError: element_xpath_585 is not defined
 	=>
 
-	How to fix: use '//TABLE(...)' instead of '*/TABLE(...)' and escape the double quotes.
+	This happens because '*/' refers to the root of the document,
+	and tg4w assumes the root is the tag 'body'. Firewatir assumes
+	the root is the 'html' tag, so that's why it doesn't work.
 
-	Pegando apenas pelo @NAME deu certo, mas não sei se é sempre que o tg4w pega o nome (às vezes nem tem):
+	Acquiring element using only @NAME worked, but i don't know if
+	tg4w always gives the name (sometimes @name doesn't even exist):
+
 	origem = ff.select_list(:name,'sector1_o')
 	name:         sector1_o
 	type:         select-one
