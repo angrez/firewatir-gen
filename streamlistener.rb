@@ -4,8 +4,10 @@ class MyListener
     @output = <<-end
         require 'rubygems'
         require 'firewatir'
+        require 'firewatirgen'
         include FireWatir
-        ff = Firefox.new
+        include FireWatirGen
+        @ff = Firefox.new
 
       end
   end
@@ -37,34 +39,34 @@ class MyListener
       case @action_type
       when 'goto'
         @output << <<-end
-            ff.goto('#{@value}')
+            @ff.goto('#{@value}')
           end
       when 'verify-title'
         # FIXME don't know if raising an exception is the expected behavior
         @output << <<-end 
-            raise "page title doesn't match" unless ff.title == '#{@value}'
+            raise "page title doesn't match" unless @ff.title == '#{@value}'
           end
       when 'click'
         @output << <<-end
-            ff.element_by_xpath('#{@xpath}').click
+            element_by_least_restrictive_xpath('#{@xpath}').click
           end
       when 'check'
         # FIXME element_by_xpath() doesn't return it as Checkbox, therefore
         # it does not respond to set() right away
         if @value == 'true' 
           @output << <<-end 
-              ff.element_by_xpath('#{@xpath}').set
+              element_by_least_restrictive_xpath('#{@xpath}').set
             end
         elsif @value == 'false'
           @output << <<-end 
-              ff.element_by_xpath('#{@xpath}').clear
+              element_by_least_restrictive_xpath('#{@xpath}').clear
             end
 
         when 'select'
           # FIXME element_by_xpath() doesn't return it as SelectList, therefore
           # it does not respond to select_value() right away
           @output << <<-end
-            ff.element_by_xpath('#{@xpath}').select_value('#{@value}')
+            element_by_least_restrictive_xpath('#{@xpath}').select_value('#{@value}')
           end
         end
       @action_type = nil
@@ -82,7 +84,7 @@ class MyListener
       # tg4w's xpaths start with '*/', assuming the root is
       # /HTML/BODY/. so we need to replace one for the other,
       # as FireWatir uses the root at /HTML.
-      content.sub('*/','/HTML/BODY/')
+      content = content.sub('*/','/HTML/BODY/')
       # we also need double quotes to be escaped
       @xpath = content.gsub(/"/,'\\"')
     when 'value'
