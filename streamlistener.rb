@@ -44,7 +44,7 @@ class MyListener
       when 'verify-title'
         # FIXME don't know if raising an exception is the expected behavior
         @output << <<-end 
-            raise "page title doesn't match" unless @ff.title == '#{@value}'
+            raise "page title doesn't match" unless @ff.title == "#{@value}"
           end
       when 'click'
         @output << <<-end
@@ -61,39 +61,40 @@ class MyListener
           @output << <<-end 
               element_by_least_restrictive_xpath('#{@xpath}').clear
             end
+        end
 
-        when 'select'
-          # FIXME element_by_xpath() doesn't return it as SelectList, therefore
-          # it does not respond to select_value() right away
-          @output << <<-end
+      when 'select'
+        # FIXME element_by_xpath() doesn't return it as SelectList, therefore
+        # it does not respond to select_value() right away
+        @output << <<-end
             element_by_least_restrictive_xpath('#{@xpath}').select_value('#{@value}')
           end
-        end
-      @action_type = nil
-      elsif name == 'xpath' or name == 'value'
-        @cdata_type = nil
       end
+    @action_type = nil
+    elsif name == 'xpath' or name == 'value'
+      @cdata_type = nil
     end
   end
+end
 
-  # Called when <![CDATA[ ... ]]> is encountered in a document.
-  # @p content "..."
-  def cdata content
-    case @cdata_type 
-    when 'xpath'
-      # tg4w's xpaths start with '*/', assuming the root is
-      # /HTML/BODY/. so we need to replace one for the other,
-      # as FireWatir uses the root at /HTML.
-      content = content.sub('*/','/HTML/BODY/')
-      # we also need double quotes to be escaped
-      @xpath = content.gsub(/"/,'\\"')
-    when 'value'
-      @value = content
-    end
-  end 
-
-  # we really don't care about the other tags and events that
-  # the stream parser may go through
-  def method_missing(:name, *args)
+# Called when <![CDATA[ ... ]]> is encountered in a document.
+# @p content "..."
+def cdata content
+  case @cdata_type 
+  when 'xpath'
+    # tg4w's xpaths start with '*/', assuming the root is
+    # /HTML/BODY/. so we need to replace one for the other,
+    # as FireWatir uses the root at /HTML.
+    content = content.sub('*/','/HTML/BODY/')
+    # we also need double quotes to be escaped
+    @xpath = content.gsub(/"/,'\\"')
+  when 'value'
+    @value = content
   end
+end 
+
+# we really don't care about the other tags and events that
+# the stream parser may go through
+def method_missing(:name, *args)
+end
 end
