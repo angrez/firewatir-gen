@@ -1,0 +1,615 @@
+Index: FireWatir/unittests/textfields_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/textfields_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/textfields_xpath_test.rb	(cópia de trabalho)
+@@ -22,6 +22,20 @@
+        #assert($ff.text_field(:xpath , "//input[@afterText='This Text Before']").exists? )
+     end
+ 
++    def test_element_by_xpath_class
++      element = $ff.element_by_xpath("//textarea[@name='events_text']")
++      assert(element.instance_of?(TextField),"element class should be #{TextField}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@id='password1']")
++      assert(element.instance_of?(TextField),"element class should be #{TextField}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@name='password1']")
++      assert(element.instance_of?(TextField),"element class should be #{TextField}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@name='text1']")
++      assert(element.instance_of?(TextField),"element class should be #{TextField}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@id='text2']")
++      assert(element.instance_of?(TextField),"element class should be #{TextField}; got #{element.class}")
++
++    end
++
+     # Not supported by Mozilla
+     #def test_text_field_dragContentsTo
+     #    $ff.text_field(:xpath , "//input[@name='text1']").dragContentsTo(:xpath , "//input[@id='text2']/")
+Index: FireWatir/unittests/links_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/links_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/links_xpath_test.rb	(cópia de trabalho)
+@@ -16,9 +16,25 @@
+         assert(exists?{$ff.link(:xpath, "//a[contains(., /TEST/i)]")})   
+         assert_false(exists?{$ff.link(:xpath , "//a[contains(.,'missing')]")})
+         assert_false(exists?{$ff.link(:xpath, "//a[contains(., /miss/)]")})   
++    end
+ 
++    def test_element_by_xpath_class
++        element = $ff.element_by_xpath("//a[contains(., /miss/)]")
++        assert(element.instance_of?(Link),"element class should be #{Link}; got #{element.class}")
++        element = $ff.element_by_xpath("//a[contains(.,'missing')]")
++        assert(element.instance_of?(Link),"element class should be #{Link}; got #{element.class}")
++        element = $ff.element_by_xpath("//a[contains(., /TEST/i)]")
++        assert(element.instance_of?(Link),"element class should be #{Link}; got #{element.class}")
++        element = $ff.element_by_xpath("//a[contains(.,'test1')]")
++        assert(element.instance_of?(Link),"element class should be #{Link}; got #{element.class}")
+     end
+     
++    def test_element_by_xpath_behavior
++      # TODO implement this, acquiring objects through element_by_xpath and 
++      # then testing their properties to see if they behave normally, as if 
++      # they had been created with $ff.link
++    end
++    
+     def test_Link_Exists
+        assert($ff.link(:xpath , "//a[contains(.,'test1')]").exists?)
+        assert($ff.link(:xpath, "//a[contains(., /TEST/i)]").exists?)   
+Index: FireWatir/unittests/radios_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/radios_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/radios_xpath_test.rb	(cópia de trabalho)
+@@ -19,6 +19,13 @@
+        assert_false($ff.radio(:xpath, "//input[@id='missingid']").exists?)   
+     end
+ 
++    def test_element_by_xpath_class
++      element = $ff.element_by_xpath("//input[@name='box1']")
++      assert(element.instance_of?(Radio),"element class should be #{Radio}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@id='box5']")
++      assert(element.instance_of?(Radio),"element class should be #{Radio}; got #{element.class}")
++    end
++
+     def test_Radio_Enabled
+        assert_raises(UnknownObjectException , "UnknownObjectException was supposed to be thrown" ) {   $ff.radio(:xpath, "//input[@name='noName']").enabled?  }  
+        assert_raises(UnknownObjectException , "UnknownObjectException was supposed to be thrown" ) {   $ff.radio(:xpath, "//input[@id='noName']").enabled?  }  
+Index: FireWatir/unittests/checkbox_test.rb
+===================================================================
+--- FireWatir/unittests/checkbox_test.rb	(revisão 110)
++++ FireWatir/unittests/checkbox_test.rb	(cópia de trabalho)
+@@ -19,6 +19,7 @@
+        assert_raises(UnknownObjectException , "UnknownObjectException was supposed to be thrown" ) {   $ff.checkbox(:name, "noName").value   }  
+ 
+        assert_equal("box1"  , $ff.checkbox(:index, 1).name  ) 
++       assert_instance_of(CheckBox,$ff.checkbox(:index,1))
+        assert_equal(""  , $ff.checkbox(:index, 1).id  ) 
+        assert_equal("checkbox"  , $ff.checkbox(:index, 1).type  ) 
+        assert_equal("on"  , $ff.checkbox(:index, 1).value  ) 
+Index: FireWatir/unittests/filefield_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/filefield_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/filefield_xpath_test.rb	(cópia de trabalho)
+@@ -24,6 +24,17 @@
+ 	#click the upload button
+ 	$ff.button(:xpath, "//input[@name='upload']").click
+ 
++  def test_element_by_xpath_class
++    element = $ff.element_by_xpath("//input[@name='file1']")
++    assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++    element = $ff.element_by_xpath("//input[@id='file2']")
++    assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++    element = $ff.element_by_xpath("//input[@name='file3']")
++    assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++    element = $ff.element_by_xpath("//input[@name='upload']")
++    assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++  end
++
+ 	assert($ff.text.include?("PASS"))	
+     end
+ 
+Index: FireWatir/unittests/checkbox_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/checkbox_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/checkbox_xpath_test.rb	(cópia de trabalho)
+@@ -33,6 +33,14 @@
+        assert_false($ff.checkbox(:xpath , "//input[@name='box4' and @value='22']").exists?)   
+     end
+ 
++    def test_element_by_xpath_class
++      element = $ff.element_by_xpath("//input[@name='box4' and @value='1']")
++      assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@name='box4' and @value='22']")
++      assert(element.instance_of?(CheckBox),"element class should be #{CheckBox}; got #{element.class}")
++
++    end
++
+     def test_checkbox_Enabled
+        assert_raises(UnknownObjectException) { $ff.checkbox(:xpath , "//input[@name='noName']").enabled? }  
+        assert_raises(UnknownObjectException) { $ff.checkbox(:xpath , "//input[@id='noName']").enabled? }  
+Index: FireWatir/unittests/table_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/table_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/table_xpath_test.rb	(cópia de trabalho)
+@@ -13,10 +13,18 @@
+   
+   def test_Table_Exists
+     assert(!$ff.table(:xpath , "//table[@id = 'missingTable']").exists?)
+-    
+     assert($ff.table(:xpath, "//table[@id = 't1']").exists?)
+   end
+   
++  def test_element_by_xpath_class
++    element = $ff.element_by_xpath("//table[@id = 't1']")
++    assert(element.instance_of?(Table),"element class should be #{Table}; got #{element.class}")
++    # FIXME really bizarre: this one should be a Table, but 
++    # Firefox.element_factory gets HTMLAnchorElement as input
++    element = $ff.element_by_xpath("//table[@id = 'missingTable']")
++    assert(element.instance_of?(Table),"element class should be #{Table}; got #{element.class}")
++  end
++  
+   def test_rows
+     assert_raises(UnknownObjectException ){ $ff.table(:xpath, "//table[@id = 'missingTable']").row_count }
+     assert_raises(UnknownObjectException){ $ff.table(:xpath, "//table[@bad_attribute = 99]").row_count }
+Index: FireWatir/unittests/selectbox_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/selectbox_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/selectbox_xpath_test.rb	(cópia de trabalho)
+@@ -17,6 +17,17 @@
+        assert_false($ff.select_list(:xpath, "//select[@id='missing']").exists?)   
+     end
+ 
++    def test_element_by_xpath_class
++      element = $ff.element_by_xpath("//select[@name='sel1']")
++      assert(element.instance_of?(SelectList),"element class should be #{SelectList}; got #{element.class}")
++      # FIXME got HTMLAnchorElement, should've gotten HTMLSelectElement
++      element = $ff.element_by_xpath("//select[@name='missing']")
++      assert(element.instance_of?(SelectList),"element class should be #{SelectList}; got #{element.class}")
++      # FIXME got HTMLAnchorElement, should've gotten HTMLSelectElement
++      element = $ff.element_by_xpath("//select[@id='missing']")
++      assert(element.instance_of?(SelectList),"element class should be #{SelectList}; got #{element.class}")
++    end
++
+     def test_select_list_enabled
+        assert($ff.select_list(:xpath, "//select[@name='sel1']").enabled?)   
+        assert_raises(UnknownObjectException) { $ff.select_list(:xpath, "//select[@name='NoName']").enabled? }  
+Index: FireWatir/unittests/buttons_test.rb
+===================================================================
+--- FireWatir/unittests/buttons_test.rb	(revisão 110)
++++ FireWatir/unittests/buttons_test.rb	(cópia de trabalho)
+@@ -124,10 +124,10 @@
+      end
+ 
+      def test_button2
+-        assert($ff.button(:caption, "Click Me2").exists?)   
++        assert($ff.button(:caption, "Click Me2").exists?, 'Can\'t find Button with caption "Click Me2"')   
+        
+-        assert($ff.button(:caption, "Disabled Button2").exists?) 
+-        assert($ff.button(:caption, "Sign In").exists?)
++        assert($ff.button(:caption, "Disabled Button2").exists?, 'Can\'t find Button with caption "Disabled Button2"') 
++        assert($ff.button(:caption, "Sign In").exists?, 'Can\'t find Button with caption "Sign In"')
+         
+         assert_equal("b6"  , $ff.button(:id, "b7").name ) 
+         assert_equal("b7"  , $ff.button(:name, "b6").id ) 
+@@ -142,15 +142,15 @@
+         assert_equal(""  , $ff.button(:name, "b8").class_name  ) 
+         assert_equal("Sign In", $ff.button(:caption, "Sign In").value)
+         
+-        assert($ff.button(:caption, "Click Me").enabled?)   
++        assert($ff.button(:caption, "Click Me").enabled?, 'Button wih caption "Click Me" should be enabled')   
+       
+-        assert_false($ff.button(:caption, "Disabled Button2").enabled?)   
++        assert_false($ff.button(:caption, "Disabled Button2").enabled?, 'Button wih caption "Disabled Button2" should be disabled')   
+         
+         
+         assert_raises(ObjectDisabledException , "ObjectDisabledException was supposed to be thrown" ) {   $ff.button(:caption, "Disabled Button2").click   }  
+         
+         $ff.button(:caption, "Click Me2").click
+-        assert($ff.text.include?("PASS")) 
++        assert($ff.text.include?("PASS"), 'Clicking on "Click Me2" button should\'ve taken to the "PASS" page') 
+ 
+      end
+     
+@@ -176,5 +176,40 @@
+         assert_equal("Sign In",arrButtons[7].value)
+    end
+     
++    # Tests collection class
++    def test_class_buttons
++      arr_buttons = $ff.buttons
++      arr_buttons.each do |b|
++        assert(b.instance_of?(Button),"element class should be #{Button}; got #{b.class}")
+ end
++      # test properties
++      assert_equal("b2", arr_buttons[1].id)
++      assert_equal("b1", arr_buttons[1].name) 
++      assert_equal("button", arr_buttons[1].type) 
++      assert_equal("Click Me", arr_buttons[1].value) 
++      assert_equal(false, arr_buttons[1].disabled) 
++      assert_equal("italic_button", arr_buttons[1].class_name) 
++      assert_equal( "this is button1", arr_buttons[1].title)
+ 
++      assert_equal("b5", arr_buttons[2].id)
++      assert_equal("b4", arr_buttons[2].name) 
++      assert_equal("button", arr_buttons[2].type) 
++      assert_equal("Disabled Button", arr_buttons[2].value) 
++      assert_equal(true, arr_buttons[2].disabled) 
++      assert_equal( "", arr_buttons[2].title)
++      assert_equal("", arr_buttons[2].class_name) 
++
++      assert_equal("Submit", arr_buttons[3].value)
++      assert_equal("sub3", arr_buttons[4].name)
++      assert_equal("b7", arr_buttons[5].id)
++      assert_equal("b9", arr_buttons[6].id)
++      assert_equal("Sign In", arr_buttons[7].value)
++
++
++
++
++    end
++
++
++end
++
+Index: FireWatir/unittests/setup.rb
+===================================================================
+--- FireWatir/unittests/setup.rb	(revisão 110)
++++ FireWatir/unittests/setup.rb	(cópia de trabalho)
+@@ -1,4 +1,4 @@
+-END {$ff.close if $ff} # close ff at completion of the tests
++#END {$ff.close if $ff} # close ff at completion of the tests
+ 
+ # libraries used by feature tests
+ require 'firewatir'
+Index: FireWatir/unittests/buttons_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/buttons_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/buttons_xpath_test.rb	(cópia de trabalho)
+@@ -57,6 +57,23 @@
+         assert_false($ff.button(:xpath, "//input[@id='missingid']").exists?)   
+     end
+     
++    def test_element_by_xpath_class
++      element = $ff.element_by_xpath("//input[@value='Click Me']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@value='Submit']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@name='b1']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@id='b2']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@value='Missing Caption']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@name='missingname']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++      element = $ff.element_by_xpath("//input[@id='missingid']")
++      assert(element.instance_of?(Button),"element class should be #{Button}; got #{element.class}")
++    end
++    
+     def test_Button_Enabled
+         assert($ff.button(:xpath, "//input[@value='Click Me']").enabled?)   
+         assert_false($ff.button(:xpath, "//input[@value='Disabled Button']").enabled?)   
+Index: FireWatir/unittests/html/buttons1.html
+===================================================================
+--- FireWatir/unittests/html/buttons1.html	(revisão 110)
++++ FireWatir/unittests/html/buttons1.html	(cópia de trabalho)
+@@ -17,8 +17,8 @@
+ <input type = button class="italic_button"  name = b1 id = b2 value = "Click Me" onClick="javascript:document.location='pass.html';" title = "this is button1">
+ <br><input type = button name = b4 id=b5 value = "Disabled Button" onClick="javascript:document.location='fail.html';" disabled>
+ <input type=text id="text_id" value="OldValue" size="20"/>
++</form>
+ </td>
+-</form>
+ <td> The top button is for testing buttons with names
+ <br> The second button is used for testing disabled buttons
+ </td>
+@@ -29,6 +29,7 @@
+ <form name = test2 method = get action = pass2.html>
+ <br><input type = submit value=Submit>
+ </form>
++</td>
+ <td> This button is a submit ( the others are buttons)
+ </td>
+ </tr>
+@@ -36,6 +37,7 @@
+ <td>
+ <form name = test3 method = get action = pass3.html>
+ <br><input type = image src=images/button.jpg name =sub3>
++</form>
+ </td>
+ <td> This button is an image. It should behave the same as a submit
+ 
+@@ -43,7 +45,6 @@
+ </tr>
+ <tr>
+ <td>
+-</form>
+ <form name = test1 method = get action = pass.html>
+ 
+ <button class="italic_button"  name=b6 id = b7 value="Click Me2" onClick="javascript:document.location='pass.html';" title="this is button2">Click Me2</button>
+@@ -56,4 +57,5 @@
+ </td>
+ </tr>
+ </table>
++</body>
+ </html>
+Index: FireWatir/unittests/images_xpath_test.rb
+===================================================================
+--- FireWatir/unittests/images_xpath_test.rb	(revisão 110)
++++ FireWatir/unittests/images_xpath_test.rb	(cópia de trabalho)
+@@ -39,6 +39,28 @@
+         assert_false(  $ff.image(:xpath , "//img[contains(@alt , 'tri')]" ).exists?  )
+     end
+     
++    def test_element_by_xpath_class
++      # FIXME getting HTMLAnchorElement instead of HTMLImageElement
++      element = $ff.element_by_xpath("//img[@name='missing_name']")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[@name='circle']")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[contains(@name , 'circ')]")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[@id='missing_id']")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[@id='square']")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[contains(@id, 'squ')]")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[contains(@src , 'triangle')]")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[contains(@alt , 'cir')]")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++      element = $ff.element_by_xpath("//img[contains(@alt , 'tri')]")
++      assert(element.instance_of?(Image),"element class should be #{Image}; got #{element.class}")
++    end
++    
+     def test_image_click
+         assert_raises(UnknownObjectException ) { $ff.image(:xpath , "//img[@name='no_image_with_this']").click }
+         assert_raises(UnknownObjectException ) { $ff.image(:xpath , "//img[@id='no_image_with_this']").click }
+Index: FireWatir/unittests/bug_fixes_test.rb
+===================================================================
+--- FireWatir/unittests/bug_fixes_test.rb	(revisão 110)
++++ FireWatir/unittests/bug_fixes_test.rb	(cópia de trabalho)
+@@ -24,6 +24,22 @@
+         assert_equal("test_link", link.name)
+     end
+     
++
++    # element_by_xpath should return an element that's instance of the
++    # appropriate class, not the generic Element class. So if it's a div,
++    # it should return an instance of Div, if it's a checkbox, CheckBox,
++    # and so on. TODO write tests for all classes
++    def test_element_by_xpath_bug01
++      $ff.goto($htmlRoot + "div.html")
++      element = $ff.element_by_xpath("//div[@id='div1']")
++      assert_not_nil(element) # helder
++      # next assert always breaks, dunno why (error, not failure)
++      #assert_instance_of(Div, element, "wrong constructor was used")
++      # using this hack instead
++      assert(element.instance_of?(Div),
++               "element class should be: #{Div}; got: #{element.class}.")
++    end
++    
+     def test_elements_by_xpath_bug10
+         $ff.goto($htmlRoot + "links1.html")
+         elements = $ff.elements_by_xpath("//a")
+@@ -42,7 +58,7 @@
+     def test_html_bug7
+         $ff.goto($htmlRoot + "links1.html")
+         html = $ff.html
+-        assert(html =~ /.*<a id="linktos" *>*/)
++        assert_match(/.*<a id="linktos" *>*/,html)
+     end
+ 
+     def test_span_onclick_bug14
+@@ -122,9 +138,41 @@
+ 
+     def test_file_field_bug_20
+         $ff.goto($htmlRoot + "fileupload.html")
++        # Enter dummy path.
++        if(RUBY_PLATFORM =~ /.*mswin.*/)
+         $ff.file_field(:name, "file3").set("c:\\results.txt")
++        else    
++            $ff.file_field(:name, "file3").set("/user/lib/results.txt")
++        end    
+         $ff.button(:name, "upload").click()
+         url = $ff.url
+-        assert(url =~ /.*results.txt&upload=upload$/)
++        assert_match(/.*results.txt&upload=upload$/,url)
+     end
++    
++    def test_button_bug2
++        $ff.goto($htmlRoot + "buttons1.html")
++        btn = $ff.button(:id, "b7")
++        assert_equal("b7", btn.id)
+ end 
++    
++    def test_getAllContents_bug25
++        $ff.goto($htmlRoot + "select_tealeaf.html")
++        $ff.select_lists.each do |select|
++            contents =  select.getAllContents().to_s
++            puts contents
++            assert_equal("=<>>=<=", contents)
++            break
++        end
++    end
++
++    def test_fire_event_bug31
++        $ff.goto($htmlRoot + "div.html")
++        div = $ff.div(:attribute, "attribute")
++        div.fire_event("ondblclick")
++        assert("PASS", $ff.text)
++        $ff.goto($htmlRoot + "div.html")
++        div = $ff.div(:id, "div1")
++        div.fireEvent("ondblclick")
++        assert("PASS", $ff.text)
++    end
++end 
+Index: FireWatir/htmlelements.rb
+===================================================================
+--- FireWatir/htmlelements.rb	(revisão 110)
++++ FireWatir/htmlelements.rb	(cópia de trabalho)
+@@ -2185,3 +2185,23 @@
+ #    end
+ 
+ end
++
++k = []
++ObjectSpace.each_object(Class) {|c| k << c if (c.ancestors.include? Element and c != Element)}
++
++k.each do |c|
++  if c.method_defined? :locate
++    c.class_eval '
++       alias :old_locate :locate 
++       def locate
++         old_locate
++         if element_object != nil and element_object.strip != ""
++           $jssh_socket.send("#{element_object}.type;\n", 0)
++           input_type = read_socket().downcase
++           puts "INPUT_TYPE: " << input_type # DEBUG
++         end
++       end
++    ' 
++  end
++end
++
+Index: FireWatir/MozillaBaseElement.rb
+===================================================================
+--- FireWatir/MozillaBaseElement.rb	(revisão 110)
++++ FireWatir/MozillaBaseElement.rb	(cópia de trabalho)
+@@ -652,7 +652,9 @@
+             elements = Array.new(node_count.to_i)
+ 
+             for i in 0..elements.length - 1 do
+-                elements[i] = Element.new("element_xpath_#{rand_no}[#{i}]", container)
++              #    elements[i] = Element.new("element_xpath_#{rand_no}[#{i}]", container)
++              elements[i] = "element_xpath_#{rand_no}[#{i}]"
++
+             end
+ 
+             return elements;
+@@ -732,7 +734,7 @@
+                 return "HTMLAnchorElement"
+             end
+         end
+-        private :element_type
++        #private :element_type
+         
+         #
+         # Description:
+Index: FireWatir/firewatir.rb
+===================================================================
+--- FireWatir/firewatir.rb	(revisão 110)
++++ FireWatir/firewatir.rb	(cópia de trabalho)
+@@ -201,6 +201,12 @@
+                     sleep waitTime
+                 #    @@firefox_started = true
+                 #end
++            elsif(RUBY_PLATFORM =~ /linux/i)
++                puts RUBY_PLATFORM
++                path_to_bin = `which firefox`.strip
++                puts "#{path_to_bin} about:blank -jssh"
++                @t = Thread.new { `#{path_to_bin} about:blank -jssh` }
++                sleep waitTime
+             end       
+             
+             set_defaults()
+@@ -661,9 +667,84 @@
+         def element_by_xpath(xpath)
+             temp = Element.new(nil, self)
+             element_name = temp.element_by_xpath(self, xpath)
+-            return Element.new(element_name, self)
++            return element_factory(element_name)
+         end
+ 
++       def element_factory(element_name) 
++           jssh_type = Element.new(element_name,self).element_type
++           puts jssh_type # DEBUG
++           candidate_class = jssh_type =~ /HTML(.*)Element/ ? $1 : ''
++           puts candidate_class # DEBUG
++
++           if candidate_class == 'Input'
++               $jssh_socket.send("#{element_name}.type;\n", 0)
++               input_type = read_socket().downcase.strip
++               puts input_type # DEBUG
++               firewatir_class = input_class(input_type)
++           else
++               firewatir_class = jssh2firewatir(candidate_class)
++           end
++
++           puts firewatir_class # DEBUG
++           klass = Kernel.const_get(firewatir_class)
++
++           if klass == Element
++               klass.new(element_name,self)
++           elsif klass == CheckBox
++               klass.new(self,:jssh_name,element_name,["checkbox"])
++           elsif klass == Radio
++               klass.new(self,:jssh_name,element_name,["radio"])
++           else
++               klass.new(self,:jssh_name,element_name)
++           end
++       end
++
++       def input_class(input_type)
++           hash = {
++               'select-one' => 'SelectList',
++               'select-multiple' => 'SelectList',
++               'text' => 'TextField',
++               'password' => 'TextField',
++               'textarea' => 'TextField',
++               # TODO when there's no type, it's a TextField
++               'file' => 'FileField',
++               'checkbox' => 'CheckBox',
++               'radio' => 'Radio',
++               'reset' => 'Button',
++               'button' => 'Button',
++               'submit' => 'Button',
++               'image' => 'Button'
++           }
++           hash.default = 'Element'
++
++           hash[input_type]
++       end
++
++       def jssh2firewatir(candidate_class)
++           hash = {
++              'Div' => 'Div',
++              'Button' => 'Button',
++              'Frame' => 'Frame',
++              'IFrame' => 'Frame',
++              'Span' => 'Span',
++              'Paragraph' => 'P',
++              'Label' => 'Label',
++              'Form' => 'Form',
++              'Image' => 'Image',
++              'Table' => 'Table',
++              'TableCell' => 'TableCell',
++              'TableRow' => 'TableRow',
++              'Select' => 'SelectList',
++              'Link' => 'Link',
++              'Anchor' => 'Link',
++              'TextArea' => 'TextField'
++              #'Option' => 'Option' # don't need to worry about this one
++           }
++           hash.default = 'Element'
++
++           hash[candidate_class]
++       end
++
+         #
+         # Description:
+         #   Returns the array of elements that matches the xpath query.
+@@ -676,7 +757,8 @@
+         #
+         def elements_by_xpath(xpath)
+             element = Element.new(nil, self)
+-            return element.elements_by_xpath(self, xpath)
++            elem_names = element.elements_by_xpath(self, xpath)
++            a = elem_names.inject([]) {|elements,name| elements << element_factory(name)}
+         end
+ 
+     end # Class Firefox
+@@ -721,3 +803,5 @@
+     end       
+ 
+ end
++
++   # vim: shiftwidth=4 tabstop=4 softtabstop=4 expandtab
