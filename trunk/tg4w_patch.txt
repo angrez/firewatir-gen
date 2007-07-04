@@ -1,0 +1,35 @@
+Index: recorder.js
+===================================================================
+--- recorder.js	(revisão 19)
++++ recorder.js	(cópia de trabalho)
+@@ -1526,7 +1526,7 @@
+ 
+     var localname = eTarget.localName;
+     if (localname == "INPUT" || localname == "BUTTON") {
+-        if (eTarget.type == "button" || eTarget.type == "submit" || eTarget.type == "radio" || eTarget.type == "image") {
++        if (eTarget.type == "button" || eTarget.type == "submit" || eTarget.type == "radio" || eTarget.type == "image" || eTarget.type == "reset") {
+             var xpath = this.getXpath(eTarget);
+             this.log("trying to record " + eTarget.type + " " + xpath);
+             this.log("trying to record " + xpath);
+Index: findobject.js
+===================================================================
+--- findobject.js	(revisão 19)
++++ findobject.js	(cópia de trabalho)
+@@ -338,7 +338,7 @@
+         if (obj.id) {
+             inputXpath = obj.localName + "[@ID=\"" + tg4wcommon.escapeCharacters(obj.id) + "\"]";
+         } else {
+-            if (obj.type == "button" || obj.type == "submit" || obj.type == "radio" || obj.type == "image" || obj.type == "file") {
++            if (obj.type == "button" || obj.type == "submit" || obj.type == "radio" || obj.type == "image" || obj.type == "file" || obj.type == "reset") {
+                 if (obj.hasAttribute("name")) {
+                     inputXpath = obj.localName + "[@NAME=\"" + obj.getAttribute("name") + "\"";
+                 } else if (obj.hasAttribute("type")) {
+@@ -346,7 +346,7 @@
+                 }
+ 
+                 // if the input type is a file, don't copy the contents
+-                if (obj.type != "file") {
++                if (obj.type != "file" && obj.hasAttribute("value")) {
+                     inputXpath = inputXpath + " and @VALUE=\"" + tg4wcommon.escapeCharacters(obj.value) + "\"]";
+                 } else {
+                     // close the [ opened before

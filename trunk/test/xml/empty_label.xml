@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tg4w version="0.41.1">
+    <actions>
+        <action type="goto" refresh="." window="." step="0">
+            <xpath><![CDATA[window.location.href]]></xpath>
+            <value><![CDATA[http://mail.google.com/mail/h/yonrmu0x2vb7/?zy=f&f=1]]></value>
+        </action>
+        <action type="verify-title" window="." step="1">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Gmail - Posteingang]]></value>
+        </action>
+        <action type="click" refresh="." window="." step="2">
+            <xpath><![CDATA[*/TABLE[3]/TBODY[1]/TR[1]/TD[1]/TABLE[2]/TBODY[1]/TR[1]/TD[1]/*/A[@CDATA="greader"]]]></xpath>
+            <value><![CDATA[]]></value>
+        </action>
+        <action type="verify-title" window="." step="3">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Gmail - Label: greader]]></value>
+        </action>
+        <action type="check" window="." step="4">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="5">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="6">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="7">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="8">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="9">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="10">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="11">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="12">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="13">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="14">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="15">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="16">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="17">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="18">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="19">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="20">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="21">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="22">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="23">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="24">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="25">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="26">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="27">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="28">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="29">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="30">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="31">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="32">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="33">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="34">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="35">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="36">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="37">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="38">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="39">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="40">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="41">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="42">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="43">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="44">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="45">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="46">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="47">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="48">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="49">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="50">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="51">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="52">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="53">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="54">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="55">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="56">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="57">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="58">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="59">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="60">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="61">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="62">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="63">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="64">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="65">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="66">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="67">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="68">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="69">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="70">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="71">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="72">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="73">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="74">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="75">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="76">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="77">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="78">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="79">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="80">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="81">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="82">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="83">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="84">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="85">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="86">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="87">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="88">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="89">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="90">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="91">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="92">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="93">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="94">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="95">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="96">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="97">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="98">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="99">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="100">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="101">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="102">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="check" window="." step="103">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@TYPE="checkbox" and @NAME="t"]]]></xpath>
+            <value><![CDATA[true]]></value>
+        </action>
+        <action type="select" window="." step="104">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/SELECT[@NAME="tact"]]]></xpath>
+            <value><![CDATA[tr]]></value>
+        </action>
+        <action type="click" refresh="." window="." step="105">
+            <xpath><![CDATA[*/FORM[@NAME="f"]/*/INPUT[@NAME="nvp_tbu_go" and @VALUE="Start"]]]></xpath>
+            <value><![CDATA[nvp_tbu_go]]></value>
+        </action>
+        <action type="verify-title" window="." step="106">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Gmail - Label: greader]]></value>
+        </action>
+    </actions>
+</tg4w>

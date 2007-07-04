@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tg4w version="0.41.1">
+    <actions>
+        <action type="goto" refresh="." window="." step="0">
+            <xpath><![CDATA[window.location.href]]></xpath>
+            <value><![CDATA[file:///home/helder/work/firewatir/FireWatir/unittests/html/simple_table_buttons.html]]></value>
+        </action>
+        <action type="verify-title" window="." step="1">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[simple table buttons]]></value>
+        </action>
+        <action type="click" window="." step="2">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/INPUT[@ID="b1"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="3">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[2]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="4">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[3]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="5">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[3]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click too"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="6">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[5]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click To Change <-"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="7">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[5]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click To Change <-"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="fill" window="." step="8">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[5]/TD[1]/INPUT[@TYPE="text" and @NAME="same_cell"]]]></xpath>
+            <value><![CDATA[fdfadfasdfafas]]></value>
+        </action>
+        <action type="click" window="." step="9">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[5]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click To Change <-"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="10">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[3]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click too"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="11">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[3]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="12">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[2]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="13">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/INPUT[@ID="b1"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="14">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[3]/TD[1]/INPUT[@TYPE="button" and @VALUE="Click too"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+    </actions>
+</tg4w>

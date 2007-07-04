@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tg4w version="0.41.1">
+    <actions>
+        <action type="goto" refresh="." window="." step="0">
+            <xpath><![CDATA[window.location.href]]></xpath>
+            <value><![CDATA[http://www.voegol.com.br/]]></value>
+        </action>
+
+	<!-- 
+	ff = Firefox.start('http://www.voegol.com.br/')
+	-->
+
+        <action type="verify-title" window="." step="1">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......]]></value>
+        </action>
+
+	<!--
+	ff.title == '.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......'
+	
+	FIXME: didn't work, problem with character encoding:
+	ff.title
+	=> ".....:GOL:..:LINHAS A\311REAS INTELIGENTES:......"
+	irb(main):006:0> ff.title == '.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......'
+	=> false
+	'.....:GOL:..:LINHAS AÉREAS INTELIGENTES:......'
+	=> ".....:GOL:..:LINHAS A\303\211REAS INTELIGENTES:......"
+	-->
+
+        <action type="select" window="." step="2">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[3]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/SELECT[@NAME="sector1_o"]]]></xpath>
+            <value><![CDATA[aGRU]]></value>
+        </action>
+
+	<!-- 
+	origem = ff.element_by_xpath('*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[3]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/SELECT[@NAME="sector1_o"]'.downcase)
+	name:         ReferenceError: element_xpath_585 is not defined
+	type:         ReferenceError: element_xpath_585 is not defined
+	id:           ReferenceError: element_xpath_585 is not defined
+	value:        ReferenceError: element_xpath_585 is not defined
+	disabled:     ReferenceError: element_xpath_585 is not defined
+	=>
+
+	This happens because '*/' refers to the root of the document,
+	and tg4w assumes the root is the tag 'body'. Firewatir assumes
+	the root is the 'html' tag, so that's why it doesn't work.
+
+	Acquiring element using only @NAME worked, but i don't know if
+	tg4w always gives the name (sometimes @name doesn't even exist):
+
+	origem = ff.select_list(:name,'sector1_o')
+	name:         sector1_o
+	type:         select-one
+	id:
+	value:        XXX
+	disabled:     false
+	=>
+
+	origem.select_value('aGRU')
+	=> "" #funcionou
+	-->
+
+
+        <action type="select" window="." step="3">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[4]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/SELECT[@NAME="sector1_d"]]]></xpath>
+            <value><![CDATA[CGR]]></value>
+        </action>
+
+	<!--
+	Mesmo problema que o anterior quando tenta acessar pelo xpath (element_xpath_428 is not defined)
+
+	destino = ff.select_list(:name,'sector1_d')
+	name:         sector1_d
+	type:         select-one
+	id:
+	value:        XXX
+	disabled:     false
+	=>
+	destino.select_value('CGR')
+	=> "" #funcionou
+	-->
+
+        <action type="select" window="." step="4">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[5]/TD[3]/SELECT[@NAME="sector_1_d"]]]></xpath>
+            <value><![CDATA[10]]></value>
+        </action>
+
+	<!-- 
+	por xpath, erro: element_xpath_809 is not defined
+
+	dia_ida = ff.select_list(:name,'sector_1_d')
+	name:         sector_1_d
+	type:         select-one
+	id:
+	value:        14
+	disabled:     false
+	=>
+	dia_ida.select_value('10')
+	=> "" #funcionou
+	-->
+
+        <action type="select" window="." step="5">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[6]/TD[3]/SELECT[@NAME="sector_2_d"]]]></xpath>
+            <value><![CDATA[14]]></value>
+        </action>
+
+	<!--
+	same as above
+	-->
+
+        <action type="click" refresh="." window="." step="6">
+            <xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[11]/TD[2]/INPUT[@NAME="b_search" and @VALUE="procurar vôos"]]]></xpath>
+            <value><![CDATA[b_search]]></value>
+        </action>
+
+	<!-- 
+	bsearch = ff.button(:name,'b_search')
+	name:         b_search
+	type:         image
+	id:
+	value:        procurar v�os
+	disabled:     false
+	=>
+
+	bsearch = ff.button(:value,'procurar vôos')
+	FireWatir::Exception::UnknownObjectException: Unable to locate object, using value and procurar vôos
+	from /var/lib/gems/1.8/gems/firewatir-1.0.2/./MozillaBaseElement.rb:881:in `assert_exists'
+	from /var/lib/gems/1.8/gems/firewatir-1.0.2/./MozillaBaseElement.rb:717:in `inspect'
+	from /usr/lib/ruby/1.8/irb.rb:298:in `output_value'
+	from /usr/lib/ruby/1.8/irb.rb:151:in `eval_input'
+	from /usr/lib/ruby/1.8/irb.rb:259:in `signal_status'
+	from /usr/lib/ruby/1.8/irb.rb:147:in `eval_input'
+	from /usr/lib/ruby/1.8/irb.rb:146:in `eval_input'
+	from /usr/lib/ruby/1.8/irb.rb:70:in `start'
+	from /usr/lib/ruby/1.8/irb.rb:69:in `catch'
+	from /usr/lib/ruby/1.8/irb.rb:69:in `start'
+	from /usr/bin/irb:13
+
+	bsearch.click #bsearch retornado pela 1a tentativa
+	=> 0 #funcionou
+
+	-->
+
+	<action type="verify-title" window="." step="7">
+		<xpath><![CDATA[*]]></xpath>
+		<value><![CDATA[Reservas OnLine]]></value>
+	</action>
+
+	<!--
+	FIXME: Problema: o firewatir não atualiza o ff para apontar para a nova página
+	quando dá bsearch.click. ff.title ainda retorna (...)Gol Linhas Aéreas(...) ao invés
+	de "Reservas OnLine"
+	Não deu nem pra pegar o novo endereço da barra de endereço e dar um ff.goto() pq a
+	página é resultado de cgi.
+	-->
+
+	<action type="click" window="." step="8">
+		<xpath><![CDATA[*/TABLE[2]/TBODY[1]/TR[4]/TD[2]/TABLE[2]/TBODY[1]/TR[1]/TD[1]/TABLE[3]/TBODY[1]/TR[1]/TD[1]/TABLE[4]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[3]/A[1]]]></xpath>
+		<value><![CDATA[]]></value>
+	</action>
+	<action type="select" window="." step="9">
+		<xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[3]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/SELECT[@NAME="sector1_o"]]]></xpath>
+		<value><![CDATA[aCGH]]></value>
+	</action>
+	<action type="click" refresh="." window="." step="10">
+		<xpath><![CDATA[*/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[2]/TD[1]/TABLE[1]/TBODY[1]/TR[1]/TD[2]/TABLE[1]/TBODY[1]/TR[1]/TD[1]/TABLE[1]/TBODY[1]/TR[11]/TD[2]/INPUT[@NAME="b_search" and @VALUE="procurar vôos"]]]></xpath>
+		<value><![CDATA[b_search]]></value>
+	</action>
+	<action type="verify-title" window="." step="11">
+		<xpath><![CDATA[*]]></xpath>
+		<value><![CDATA[Reservas OnLine]]></value>
+	</action>
+</actions>
+</tg4w>

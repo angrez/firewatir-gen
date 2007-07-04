@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tg4w version="0.41.1">
+    <actions>
+        <action type="goto" refresh="." window="." step="0">
+            <xpath><![CDATA[window.location.href]]></xpath>
+            <value><![CDATA[file:///home/helder/work/firewatir/FireWatir/unittests/html/buttons1.html]]></value>
+        </action>
+        <action type="verify-title" window="." step="1">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Test page for buttons]]></value>
+        </action>
+        <action type="click" refresh="." window="." step="2">
+            <xpath><![CDATA[*/FORM[@NAME="test1"]/INPUT[@ID="b2"]]]></xpath>
+            <value><![CDATA[b1]]></value>
+        </action>
+        <action type="verify-title" window="." step="3">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Pass Page]]></value>
+        </action>
+        <action type="click" window="." step="4">
+            <xpath><![CDATA[*/FORM[@NAME="test2"]/INPUT[@TYPE="submit" and @VALUE="Submit"]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="click" window="." step="5">
+            <xpath><![CDATA[*/FORM[@NAME="test3"]/INPUT[@NAME="sub3" and @VALUE=""]]]></xpath>
+            <value><![CDATA[sub3]]></value>
+        </action>
+        <action type="click" refresh=".,." window="." step="6">
+            <xpath><![CDATA[*/FORM[@NAME="test1"]/BUTTON[@ID="b7"]]]></xpath>
+            <value><![CDATA[b6]]></value>
+        </action>
+        <action type="verify-title" window="." step="7">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Pass Page]]></value>
+        </action>
+        <action type="verify-title" window="." step="8">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Test page for buttons]]></value>
+        </action>
+        <action type="click" refresh="." window="." step="9">
+            <xpath><![CDATA[*/FORM[@NAME="test1"]/ and @VALUE=""]]]></xpath>
+            <value><![CDATA[null]]></value>
+        </action>
+        <action type="verify-title" window="." step="10">
+            <xpath><![CDATA[*]]></xpath>
+            <value><![CDATA[Pass Page]]></value>
+        </action>
+    </actions>
+</tg4w>
