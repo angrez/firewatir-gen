@@ -16,17 +16,23 @@ class Tg4wToFirewatir < Tg4wHandler
 
   end
 
+  def parse_fill(action)
+    @output << <<-end
+      element_by_least_restrictive_xpath('#{action['xpath']}').set('#{action['value']}')
+    end
+  end
 
   def parse_goto(action)
     @output << <<-end
-       @ff.goto('#{action['value']}')
+      @ff.goto('#{action['value']}')
     end
   end
 
   def parse_verify_title(action)
     # FIXME don't know if raising an exception is the expected behavior
+    # FIXME problem with internationalization. raise is commented until resolved.
     @output << <<-end
-      raise "page title doesn't match" unless @ff.title == "#{action['value']}"
+      # raise "page title doesn't match" unless @ff.title == "#{action['value']}"
     end
   end
 
@@ -68,6 +74,7 @@ if $0 == __FILE__
   end
 
   xml_file = File.expand_path(ARGV[0])
+  # dumb check
   if xml_file.split('.')[-1] != 'xml'
     puts "Not a .xml file"
     exit
