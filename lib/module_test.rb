@@ -1,3 +1,4 @@
+# TODO turn this into a unit test
 require 'firewatirgen'
 require 'rubygems'
 require 'firewatir'
